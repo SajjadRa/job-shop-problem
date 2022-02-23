@@ -1,6 +1,6 @@
+from dataclasses import dataclass
 from random import choice, randint
 from typing import NewType, Sequence
-from dataclasses import dataclass
 
 Minutes = NewType("Minutes", int)
 
@@ -58,8 +58,6 @@ def create_random_order(order_id: int) -> Order:
     )
 
 
-def generate_orders(number_of_orders):
-    orders = tuple(
-        create_random_order(order_id) for order_id in range(1, number_of_orders + 1)
-    )
+def generate_orders(number_of_orders: int) -> Orders:
+    orders = tuple(create_random_order(order_id) for order_id in range(1, number_of_orders + 1))
     return orders
